@@ -2,18 +2,15 @@ using System;
 
 namespace CSharpImplementation
 {
-    interface ICommand
+    public interface ICommand
     {
         public void Execute();
     }
-    public class ComplexCommand
-    {
-
-    }
+   
     public class SimpleCommand : ICommand
     {
-        protected string Payload;
-        public SipleCommand(string payload)
+        private string Payload;
+        public SimpleCommand(string payload)
         {
             Payload = payload;   
         }
@@ -22,6 +19,25 @@ namespace CSharpImplementation
         {
             Console.WriteLine($"SimpleCommand: See, I can do simple things like printing {Payload}");
         }
-        
+    }
+
+    public class ComplexCommand : ICommand
+    {
+        private string a;
+        private string b;
+        private Receiver receiver;
+
+        public void Execute()
+        {
+            receiver.DoSomething(a);
+            receiver.DoSomethingElse(b);
+        }
+
+        public ComplexCommand(string a, string b, Receiver receiver)
+        {
+            this.receiver = receiver;
+            this.a = a;
+            this.b = b;
+        }
     }
 }

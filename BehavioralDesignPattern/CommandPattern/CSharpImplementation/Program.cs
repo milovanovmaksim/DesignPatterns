@@ -6,7 +6,14 @@ namespace CSharpImplementation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Invoker invoker = new Invoker();
+            invoker.SetOnStart(new SimpleCommand("Say hello!"));
+
+            Receiver receiver = new Receiver();
+
+            invoker.SetOnFinish(new ComplexCommand("Send email", "Save rport", receiver));
+            invoker.DoSomethingImportant();
+
         }
     }
 }
