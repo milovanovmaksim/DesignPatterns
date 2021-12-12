@@ -19,6 +19,7 @@ namespace EventSub
             tempSensor.Post(65.6);
             pressureSensor.Post(4565.65);
             eventBus.ChangePressureEvent -= subscriber2.ShowPressure;
+            pressureSensor.Post(4565.65);
         }
     }
 

@@ -46,7 +46,7 @@ namespace EventSub
         public void Post(double pressure)
         {
             PressureEventArgs e = new PressureEventArgs(pressure);
-            Console.WriteLine($"Plisher 'PressureSensor' public pressure: {e.Pressure}");
+            Console.WriteLine($"Pablisher 'PressureSensor' public pressure: {e.Pressure}");
             OnChangePressure(e);
         }
     }
